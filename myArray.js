@@ -1,4 +1,6 @@
-const memory = require('./memory')
+const Memory = require('./memory')
+
+let memory = new Memory()
 
 class MyArray {
   constructor() {
@@ -54,7 +56,7 @@ class MyArray {
 
   _resize(size) {
     const oldPtr = this.ptr
-    this.ptr = allocate(size)
+    this.ptr = memory.allocate(size)
     if(this.ptr === null) {
       throw new Error(`Out of memory`)
     }
